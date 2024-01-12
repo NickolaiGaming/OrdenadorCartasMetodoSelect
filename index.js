@@ -1,5 +1,5 @@
 let iconos = ["♦", "♥", "♠", "♣"];
-let numeros = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+let numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 
 
@@ -52,7 +52,7 @@ function generadorCartas() {
         iconoIzquierda.innerHTML = icono;
         let contenidoNumero = document.createElement("div")
         let elNumero = cartaNueva.appendChild(contenidoNumero).classList.add("number");
-        contenidoNumero.innerHTML = numero;
+        contenidoNumero.innerHTML = changeValiu(numero);
         let iconoDerech = document.createElement("div")
         let iconoDere = cartaNueva.appendChild(iconoDerech).classList.add("iconRight");
         iconoDerech.innerHTML = icono;
@@ -114,7 +114,7 @@ function organizadorCartas() {
             iconoIzquierda.innerHTML = cartas[x].iCono;
             let contenidoNumero = document.createElement("div")
             let elNumero = cartaNueva.appendChild(contenidoNumero).classList.add("number");
-            contenidoNumero.innerHTML = cartas[x].nUmero;
+            contenidoNumero.innerHTML = changeValiu(cartas[x].nUmero);
             let iconoDerech = document.createElement("div")
             let iconoDere = cartaNueva.appendChild(iconoDerech).classList.add("iconRight");
             iconoDerech.innerHTML = cartas[x].iCono;
@@ -138,6 +138,19 @@ function organizadorCartas() {
     
 
 };
+
+
+function changeValiu(value) {
+    switch (value) {
+        case 1: return "A";
+        case 11: return "J";
+        case 12: return "Q";
+        case 13: return "K";
+
+        default: return value;
+    }
+}
+
 
 sort.addEventListener("click", organizadorCartas);
 
